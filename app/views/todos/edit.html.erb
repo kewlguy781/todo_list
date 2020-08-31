@@ -1,2 +1,17 @@
-<h1>Todos#edit</h1>
-<p>Find me in app/views/todos/edit.html.erb</p>
+<h3>Edit To-Do Task</h3>
+<%= form_with(model: @todo, local: true) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, placeholder: "Task Name" %>
+  </div>
+    <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :task, required: true, placeholder: "Task Description" %>
+  </div>
+<!--- find out how to make a dropdown list here -->
+    <div class="field">
+    <%= f.label :status %>
+    <%= f.text_field :status, required: true, placeholder: "Status" %>
+  </div>
+  <%= f.submit %>
+  <% end %>

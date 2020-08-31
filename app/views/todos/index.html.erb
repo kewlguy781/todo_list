@@ -1,2 +1,14 @@
-<h1>Todos#index</h1>
-<p>Find me in app/views/todos/index.html.erb</p>
+
+
+<h2>Welcome <%= current_user.first_name %></h2>
+<%= button_to "Log Out", destroy_user_session_path, method: :delete %>
+<%= link_to "Add To-Do Task", new_todo_path %>
+<h3>Your To-Do list</h3>
+<ul>
+ <% @todos.each do |todo| %>
+ <li>
+ <%= todo.name %> - <%= todo.task %> - <%= todo.status %>
+ <%= link_to "Edit Task", edit_todo_path(todo) %>
+ </li>
+ <% end %>
+ </ul>
