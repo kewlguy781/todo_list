@@ -9,3 +9,14 @@ class ApplicationController < ActionController::Base
        devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
      end
 end
+
+def create 
+  @todo = current_user.todos.new(todo_params)
+    if @todo.save
+      flash[:success] = "To Do Created"
+      redirect_to todos_path
+    else
+      flash[:error] = "Error #{@todo.errors.full_messages.join('\n')}"
+      render :new
+    end
+end
