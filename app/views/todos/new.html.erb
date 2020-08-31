@@ -9,10 +9,13 @@
     <%= f.text_field :task, required: true, placeholder: "Task Description" %>
   </div>
 <!--- find out how to make a dropdown list here -->
-    <div class="field">
+    <div>
     <%= f.label :status %>
-    <%= f.text_field :status, required: true, placeholder: "Status" %>
-    <!-- <% f.select :status, [['Pending', 'Pending'],['Work in Progress','Work in Progress'],['Done','Done']] %> -->
+   <!-- > <%= f.text_field :status, required: true, placeholder: "Status" %> -->
+    <%= f.select :status, options_for_select(['Pending','Work in Progress','Done']), {}, {class: 'browser-default'} %> <br>
     </div> 
+
+
+
   <%= f.submit %>
   <% end %>
